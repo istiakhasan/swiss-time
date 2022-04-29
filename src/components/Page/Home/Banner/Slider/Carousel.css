@@ -3,4 +3,5 @@
 }
 .slide-img{
     min-height: 20vh;
+    object-fit: cover;
 }

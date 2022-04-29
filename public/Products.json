@@ -1,0 +1,110 @@
+[
+    {
+        "id":1,
+        "name":"Jaeger-LeCoultre",
+        "description":"Established in 1833 in the Swiss Jura Mountains, Jaeger-LeCoultre is known for its clever designs. One of its most notable—and coveted—styles, the Reverso, features a face that flips over to protect itself within the watch casing.",
+        "price":2350,
+        "quantity":8,
+        "supplier":"Alex Brandy",
+        "img":"https://i.ibb.co/vDM14gQ/Jaeger-Le-Coultre.jpg"
+    },
+    {
+        "id":2,
+        "name":"Audemars Piguet",
+        "description":"Founded by childhood friends Jules-Louis Audemars and Edward-Auguste Piguet in 1875, Audemars Piguet is perhaps most famous for its Royal Oak collection, which, since its debut in 1972, has become an obligatory status symbol for every A-lister from hip hop legends to elite athletes. Now it has some competition: In 2019, the brand released a new collection, Code 11.59.",
+        "price":1300,
+        "quantity":13,
+        "supplier":"Emmanuel Macro",
+        "img":"https://i.ibb.co/0FjDdmY/Audemars-Piguet.jpg"
+    },
+    {
+        "id":3,
+        "name":"Frédérique Constant",
+        "description":"Founded in 1988 by Dutch couple Peter Stas and Aletta Stas-Bax, Frédérique Constant's mission statement is to craft fine luxury watches using Swiss techniques but sold at a relatively accessible price point.",
+        "price":1700,
+        "quantity":7,
+        "supplier":"Thomas Adison",
+        "img":"https://i.ibb.co/Th5j6vc/Fr-d-rique-Constant.jpg"
+    },
+    {
+        "id":4,
+        "name":"Piaget",
+        "description":"Georges-Édouard Piaget set up his first workshop on his family farm in the village of La Côte-aux-Fées in the Swiss mountains in 1874, launching the brand that is now famous for offering the thinnest automatic watch in the world.",
+        "price":590,
+        "quantity":38,
+        "supplier":"Becky Devision",
+        "img":"https://i.ibb.co/Gt2wWJB/Piaget.jpg"
+    },
+    {
+        "id":5,
+        "name":"Cartier",
+        "description":"Louis-François Cartier founded the jewelry brand in Paris in 1847. Seventy years later, his grandson Louis Cartier invented the famous Tank Watch, which was modeled after a military tank. Several iconic watch models have followed since, including this Baignoire Allongée.",
+        "price":350,
+        "quantity":29,
+        "supplier":"Jack Sparker",
+        "img":"https://i.ibb.co/KXZyNc1/Cartier.jpg"
+    },
+    {
+        "id":6,
+        "name":"Harry Winston",
+        "description":"Jeweler Harry Winston is relatively new to the watch game compared to other longer established brands out of Europe. Nevertheless, the same spirit of innovation that drives the brand's fantastical gems also applies to its timepieces. Take this avant-garde creation, the latest to join the Project Z collection—only 300 of them were made.",
+        "price":1100,
+        "quantity":23,
+        "supplier":"Kevin Alex",
+        "img":"https://i.ibb.co/W0Fy7P1/Harry-Winston.jpg"
+    },
+    {
+        "id":7,
+        "name":"Blancpain",
+        "description":"Founded in 1735, Blancpain enjoys the esteemed distinction of being the oldest surviving watch brand in the world. In the 1950s, it introduced the Fifty Fathoms diving watches, which were crafted in collaboration with the French Navy's combat swimmers and soon became the standard issue of the US Navy SEALs.",
+        "price":650,
+        "quantity":17,
+        "supplier":"Antonio",
+        "img":"https://i.ibb.co/zrs80zY/Blancpain.jpg"
+    },
+    {
+        "id":8,
+        "name":"Longines",
+        "description":"Longines was founded in 1832 by Auguste Agassiz and two partners in Saint-Imier, Switzerland, where the company is still headquartered. Its iconic winged hourglass logo is the oldest logo of its kind still being used in its original form.",
+        "price":540,
+        "quantity":30,
+        "supplier":"Zayden",
+        "img":"https://i.ibb.co/8rFzwSm/Longines.jpg"
+    },
+    {
+        "id":9,
+        "name":"Zenith",
+        "description":"Georges Favre-Jacot was just 22 when he founded his eponymous watch company in 1865, eventually renaming it Zenith. In the century and half since, the brand has amassed a number of high profile wearers, including Mahatma Gandhi.",
+        "price":1200,
+        "quantity":24,
+        "supplier":"Messiah",
+        "img":"https://i.ibb.co/Pcyrc9P/Zenith.jpg"
+    },
+    {
+        "id":10,
+        "name":"Omega",
+        "description":"Founded in 1848, Omega holds the unparalleled title of being the first watch on the moon thanks to Buzz Aldrin, who wore the Speedmaster for his history-making feat. Today it may be most famous as the preferred timepiece of England's deadliest weapon: James Bond.",
+        "price":1800,
+        "quantity":56,
+        "supplier":"Abraham John",
+        "img":"https://i.ibb.co/2SH47Y8/Omega.jpg"
+    },
+    {
+        "id":11,
+        "name":"Rolex",
+        "description":"Arguably the most well-known watch brand, Rolex has many firsts under its belt, among them the first-ever waterproof watch, appropriately called the Oyster, which was created in 1926.",
+        "price":560,
+        "quantity":35,
+        "supplier":"Alejandro",
+        "img":"https://i.ibb.co/x8zBKSj/rolax.jpg"
+    },
+    {
+        "id":12,
+        "name":"Vacheron Constantin",
+        "description":"Patek Philippe consistently tops the list of best watch brands in the world and is a status symbol like no other. Founded in 1839, the Swiss company is the last family-owned independent watch manufacturer in Geneva",
+        "price":1295,
+        "quantity":18,
+        "supplier":"Remington",
+        "img":"https://i.ibb.co/jgpcbFD/Vacheron-Constantin.jpg"
+    }
+]
