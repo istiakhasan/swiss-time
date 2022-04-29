@@ -59,7 +59,7 @@ const Menubar = () => {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Link
-                  className=" bg-white px-12 text-[#5572FF] font-bold mx-6  py-2 rounded-lg"
+                  className=" bg-white px-6 lg:px-12 text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
                   to="/login"
                 >
                   Login
