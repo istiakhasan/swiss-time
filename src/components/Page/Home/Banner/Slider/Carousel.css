@@ -1,0 +1,6 @@
+.slick-arrow,.slick-next{
+    display: none !important;
+}
+.slide-img{
+    min-height: 20vh;
+}
