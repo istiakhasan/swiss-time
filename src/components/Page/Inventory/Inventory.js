@@ -25,7 +25,7 @@ const Inventory = () => {
       let quantity=newQuantity.quantity-1 
       newQuantity.quantity=quantity
       setProduct(newQuantity)
-      console.log(product.quantity,"inside")
+    
       fetch(`http://localhost:4000/inventory/${product._id}`,{
           method:"PATCH",
           headers:{"content-type":"application/json"},

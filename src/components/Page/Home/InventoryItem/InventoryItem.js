@@ -17,7 +17,7 @@ const InventoryItem = ({ product }) => {
         <p className=" text-xs">Quantity: {product.quantity}</p>
         <p className="text-gray-600 text-xs mt-2">Supplier:{product.supplier}</p>
 
-        <button onClick={()=>navigate(`inventory/${product._id}`)} className="bg-[#A2D0C1] button-29 mt-10 w-6/12 mx-auto py-2 rounded-lg  px-10 text-white">
+        <button onClick={()=>navigate(`inventory/${product._id}`)} className="bg-[#A2D0C1] button-85 font-bold mt-10 w-6/12 mx-auto py-2 rounded-lg  px-10 text-white">
           Update
         </button>
       </div>

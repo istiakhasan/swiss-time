@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const Footer = () => {
   const {pathname}=useLocation();
-  console.log(pathname.length)
+
 
   return (
     <footer className={`gradiant-color ${pathname?.length===1?"mt-16":"" || pathname==="/home"?"mt-16":''}`}>
