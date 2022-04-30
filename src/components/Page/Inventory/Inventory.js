@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [inputValue,setInputValue]=useState({
+      restockItems:'',
+      error:''
+  })
   useEffect(() => {
     const url = `http://localhost:4000/inventory/${id}`;
     fetch(url)
@@ -11,7 +15,7 @@ const Inventory = () => {
       .then((data) => setProduct(data));
   }, [id]);
   //reduct button
-  console.log(product.quantity)
+
   const handleReducQuantity=()=>{
       if(product.quantity===0){
           alert("Quantity is 0 ")
@@ -25,11 +29,45 @@ const Inventory = () => {
       fetch(`http://localhost:4000/inventory/${product._id}`,{
           method:"PATCH",
           headers:{"content-type":"application/json"},
-          body:JSON.stringify({quantity:product.quantity})
+          body:JSON.stringify({quantity:product.quantity,isReduce:true})
       })
     
     
      
+  }
+  //restock 
+
+  const handleChange=(e)=>{
+      const quantity=parseInt(e.target.value)
+      if(quantity<=0){
+        setInputValue({...inputValue, error: "Invalid email"})
+         
+      }else{
+        setInputValue({...inputValue, error: "",restockItems:quantity})
+      }
+        
+  }
+  //handleSubmit
+  const handleSubmit=(e)=>{
+  e.preventDefault();
+  const newAddedItems=inputValue.restockItems+product.quantity 
+  const newQuantity={...product}
+  let quantity=newAddedItems
+  newQuantity.quantity=quantity
+  setProduct(newQuantity)
+  fetch(`http://localhost:4000/inventory/${product._id}`,{
+    method:"PATCH",
+    headers:{"content-type":"application/json"},
+    body:JSON.stringify({quantity:newAddedItems,isReduce:false})
+})
+.then(res=>res.json())
+.then(data=>{
+  if(data.modifiedCount){
+    e.target.reset()
+  }
+})
+ 
+
   }
 
   return (
@@ -54,6 +92,17 @@ const Inventory = () => {
               <button onClick={handleReducQuantity} className="button-29">delivered</button>
             </div>
             {/* Restock Form */}
+            <form onSubmit={handleSubmit} className="mt-5">
+                <p className="text-2xl text-green-800 mb-2">Restock Items</p>
+                <input onChange={handleChange} className="outline-none pl-8 py-2 border-gray-500 border-2 rounded-md" type="number" placeholder="Please enter a number" />
+                
+                    <p className="text-red-900 font-bold ">
+
+                 {inputValue.error}    
+                    </p>
+                <button type="submit" className="px-16 py-2 rounded bg-green-700 shadow-md shadow-green-900 text-white  mt-2 ">Add</button>
+                
+            </form>
           </div>
         </div>
       </section>
