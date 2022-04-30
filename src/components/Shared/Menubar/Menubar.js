@@ -1,14 +1,21 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { LogoutIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import "./Menubar.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.config";
+import { signOut } from "firebase/auth";
 
 const Menubar = () => {
+  const [user]=useAuthState(auth);
+  const handleSignOut=()=>{
+     signOut(auth)
+  }
   const navigation = [
     { name: "Home", to: "/", current: false },
-    { name: "Team", to: "#", current: false },
-    { name: "Projects", to: "#", current: false },
+    { name: "Team", to: "/", current: false },
+    { name: "Projects", to: "/", current: false },
     { name: "About", to: "/about", current: false },
     { name: "Order", to: "/order", current: false },
   ];
@@ -58,16 +65,20 @@ const Menubar = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link
-                  className=" bg-white px-6 lg:px-12 text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
-                  to="/login"
-                >
-                  Login
-                </Link>
-                {/* { user ?  <button onClick={logout} className='text-white bg-gray-400 px-4 '>Sign Out</button>:
+              
+                 { user ?  <button
+                 onClick={handleSignOut}
+                 className=" bg-white px-6 text-[#F45762] lg:px-6 hover:bg-[#F45762] hover:text-white  font-bold lg:mx-6 flex items-center justify-center  py-2 rounded-lg">
+                  <LogoutIcon  className=" w-6 h-6 " />
+                   Log Out</button>:
                     
-                    <Link className='text-white ' to="/login">Login</Link>
-                    } */}
+                    <Link
+                    className=" bg-white px-6 lg:px-12 text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                    } 
               </div>
             </div>
           </div>
@@ -77,8 +88,8 @@ const Menubar = () => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={Link}
+                  to={item.to}
                   className={classNames(
                     item.current
                       ? "bg-gray-900 text-white"
