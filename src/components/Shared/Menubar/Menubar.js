@@ -2,7 +2,7 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import './Menubar.css'
+import "./Menubar.css";
 
 const Menubar = () => {
   const navigation = [
@@ -17,7 +17,7 @@ const Menubar = () => {
     return classes.filter(Boolean).join(" ");
   }
   return (
-    <Disclosure as="nav" className="nav-container sticky top-0 z-10">
+    <Disclosure as="nav" className="gradiant-color sticky top-0 z-10">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

@@ -8,7 +8,7 @@ const Login = () => {
         <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
               <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
 
-                  <h1 className='text-lg text-center'>Login With email</h1>
+                  <h1 className=' text-xl text-center font-bold text-[#5468FF]'>Login With Email</h1>
 
                   <form className='w-full mt-12'>
                       <div className='mb-5'>

@@ -7,7 +7,7 @@ const Banner = () => {
     <div>
       <Carousel />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto px-5  gap-5 mt-10">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 mx-auto px-5  gap-5 mt-10">
         <div className="px-5 py-12 flex border-2">
           <FlagIcon className="h-20 mr-4" />
           <div className="w-10/12">
@@ -38,7 +38,7 @@ const Banner = () => {
             </h1>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

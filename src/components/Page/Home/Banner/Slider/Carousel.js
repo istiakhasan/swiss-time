@@ -22,23 +22,23 @@ const Carousel = () => {
         slidesToScroll: 1,
       };
     return (
-        <div>
+        <div className='my-16'>
       
         <Slider {...settings}>
           <div>
-           <img  className='w-11/12 slide-img sm:h-48 lg:h-96 mx-auto' src="https://i.ibb.co/QQ9drsT/slide-img-6.jpg" alt="" />
+           <img  className='w-11/12 slide-img sm:h-48 lg:h-[65vh] mx-auto' src="https://i.ibb.co/QQ9drsT/slide-img-6.jpg" alt="" />
           </div>
           <div>
-           <img className='w-11/12 slide-img  sm:h-48 lg:h-96 mx-auto' src="https://i.ibb.co/XyCksDw/slide-img-7.jpg" alt="" />
+           <img className='w-11/12 slide-img  sm:h-48 lg:h-[65vh] mx-auto' src="https://i.ibb.co/XyCksDw/slide-img-7.jpg" alt="" />
           </div>
           <div>
-           <img className='w-11/12 slide-img  sm:h-48 lg:h-96  mx-auto' src="https://i.ibb.co/Y7FhJ60/slide-img-9.jpg" alt="" />
+           <img className='w-11/12 slide-img  sm:h-48 lg:h-[65vh]  mx-auto' src="https://i.ibb.co/Y7FhJ60/slide-img-9.jpg" alt="" />
           </div>
           <div>
-           <img className='w-11/12 slide-img  sm:h-48 lg:h-96 mx-auto' src="https://i.ibb.co/P6rgWkR/slide-img-10.jpg" alt="" />
+           <img className='w-11/12 slide-img  sm:h-48 lg:h-[65vh] mx-auto' src="https://i.ibb.co/P6rgWkR/slide-img-10.jpg" alt="" />
           </div>
           <div>
-           <img className='w-11/12 slide-img  sm:h-48 lg:h-96 mx-auto' src="https://i.ibb.co/RHFTprW/slide-img-11.jpg" alt="" />
+           <img className='w-11/12 slide-img  sm:h-48 lg:h-[65vh] mx-auto' src="https://i.ibb.co/RHFTprW/slide-img-11.jpg" alt="" />
           </div>
           
          
