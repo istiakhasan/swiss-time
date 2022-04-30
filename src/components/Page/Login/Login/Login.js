@@ -1,18 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
-import {useSignInWithGoogle} from 'react-firebase-hooks/auth'
-import auth from '../../../../firebase.config';
+
+
+import Social from '../Social/Social';
 
 const Login = () => {
     const navigate=useNavigate()
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    
     return (
         <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
               <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
+                 <Social />
 
-                  <h1 className=' text-xl text-center font-bold text-[#5468FF]'>Login With Email</h1>
-                  <button onClick={()=>signInWithGoogle()} className='bg-red-500 px-5 py-2'>Sign IN with google</button>
+                  <h1 className=' text-xl text-center font-bold text-[#000002]'>Login With Email</h1>
+                 
 
                   <form className='w-full mt-12'>
                       <div className='mb-5'>

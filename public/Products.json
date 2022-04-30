@@ -6,7 +6,8 @@
         "price":2350,
         "quantity":8,
         "supplier":"Alex Brandy",
-        "img":"https://i.ibb.co/vDM14gQ/Jaeger-Le-Coultre.jpg"
+        "image":"https://i.ibb.co/vDM14gQ/Jaeger-Le-Coultre.jpg",
+        "email":"john@gmail.com"
     },
     {
         "id":2,
@@ -15,7 +16,9 @@
         "price":1300,
         "quantity":13,
         "supplier":"Emmanuel Macro",
-        "img":"https://i.ibb.co/0FjDdmY/Audemars-Piguet.jpg"
+        "image":"https://i.ibb.co/0FjDdmY/Audemars-Piguet.jpg",
+        "email":"macro@gmail.com"
+
     },
     {
         "id":3,
@@ -24,7 +27,8 @@
         "price":1700,
         "quantity":7,
         "supplier":"Thomas Adison",
-        "img":"https://i.ibb.co/Th5j6vc/Fr-d-rique-Constant.jpg"
+        "image":"https://i.ibb.co/Th5j6vc/Fr-d-rique-Constant.jpg",
+        "email":"thomas@gmail.com"
     },
     {
         "id":4,
@@ -33,7 +37,8 @@
         "price":590,
         "quantity":38,
         "supplier":"Becky Devision",
-        "img":"https://i.ibb.co/Gt2wWJB/Piaget.jpg"
+        "image":"https://i.ibb.co/Gt2wWJB/Piaget.jpg",
+        "email":"becky@gmail.com"
     },
     {
         "id":5,
@@ -42,7 +47,8 @@
         "price":350,
         "quantity":29,
         "supplier":"Jack Sparker",
-        "img":"https://i.ibb.co/KXZyNc1/Cartier.jpg"
+        "image":"https://i.ibb.co/KXZyNc1/Cartier.jpg",
+        "email":"jack@gmail.com"
     },
     {
         "id":6,
@@ -51,7 +57,8 @@
         "price":1100,
         "quantity":23,
         "supplier":"Kevin Alex",
-        "img":"https://i.ibb.co/W0Fy7P1/Harry-Winston.jpg"
+        "image":"https://i.ibb.co/W0Fy7P1/Harry-Winston.jpg",
+        "email":"kevin@gmail.com"
     },
     {
         "id":7,
@@ -60,7 +67,8 @@
         "price":650,
         "quantity":17,
         "supplier":"Antonio",
-        "img":"https://i.ibb.co/zrs80zY/Blancpain.jpg"
+        "image":"https://i.ibb.co/zrs80zY/Blancpain.jpg",
+        "email":"antonio@gmial.com"
     },
     {
         "id":8,
@@ -69,7 +77,8 @@
         "price":540,
         "quantity":30,
         "supplier":"Zayden",
-        "img":"https://i.ibb.co/8rFzwSm/Longines.jpg"
+        "image":"https://i.ibb.co/8rFzwSm/Longines.jpg",
+        "email":"zayden@gmail.com"
     },
     {
         "id":9,
@@ -78,7 +87,8 @@
         "price":1200,
         "quantity":24,
         "supplier":"Messiah",
-        "img":"https://i.ibb.co/Pcyrc9P/Zenith.jpg"
+        "image":"https://i.ibb.co/Pcyrc9P/Zenith.jpg",
+        "email":"messiah@gmail.com"
     },
     {
         "id":10,
@@ -87,7 +97,8 @@
         "price":1800,
         "quantity":56,
         "supplier":"Abraham John",
-        "img":"https://i.ibb.co/2SH47Y8/Omega.jpg"
+        "image":"https://i.ibb.co/2SH47Y8/Omega.jpg",
+        "email":"abraham@gmail.com"
     },
     {
         "id":11,
@@ -96,7 +107,8 @@
         "price":560,
         "quantity":35,
         "supplier":"Alejandro",
-        "img":"https://i.ibb.co/x8zBKSj/rolax.jpg"
+        "image":"https://i.ibb.co/x8zBKSj/rolax.jpg",
+        "email":"alejandro@gmail.com"
     },
     {
         "id":12,
@@ -105,6 +117,7 @@
         "price":1295,
         "quantity":18,
         "supplier":"Remington",
-        "img":"https://i.ibb.co/jgpcbFD/Vacheron-Constantin.jpg"
+        "image":"https://i.ibb.co/jgpcbFD/Vacheron-Constantin.jpg",
+        "email":"remington@gmail.com"
     }
 ]

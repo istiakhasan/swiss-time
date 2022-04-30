@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Social from '../Social/Social';
 
 const Register = () => {
     const navigate=useNavigate()
     return (
-        <main className='lg:h-[91vh] h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
+        <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
         <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
-
+             <Social />
             <h1 className='text-lg text-center'>Login With email</h1>
 
             <form className='w-full mt-12'>
