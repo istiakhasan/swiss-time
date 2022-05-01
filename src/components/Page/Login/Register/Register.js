@@ -1,30 +1,127 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../../firebase.config';
+import Loading from '../../../Shared/Loading/Loading';
 import Social from '../Social/Social';
 
 const Register = () => {
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+    const [registerUser]=useAuthState(auth);
+    const location=useLocation();
+  
+    let {from} = location.state || {from: {pathname: "/"}};
+    const [
+        createUserWithEmailAndPassword,
+        loginUser,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+  
+    const [user,setUser]=useState({
+        name:'',
+        email:"",
+        password:'',
+        confirmPass: ""
+    });
+  
+    if(registerUser){
+        navigate(from,{replace:true})
+    }
+   
+    const [errors,setErrors]=useState({
+        emailError:'',
+        passwordError:'',
+        confirmPasserror:''
+    });
+    const handleNameChange=(e)=>{
+      setUser({...user,name:e.target.value})
+    }
+    const handleEmailChange=(e)=>{
+       
+        const isValid = /\S+@\S+\.\S+/.test(e.target.value);
+        if(isValid){
+            setUser({...user,email:e.target.value}) 
+            setErrors({...errors, emailError: ""}) 
+               
+        } else {
+            const newError={...errors}
+            newError.emailError="Invalid Email"
+            setErrors(newError)
+            setUser({...user, email: ""})
+        }
+
+        
+    }
+
+     //handle password
+    const handlePasswordChange=(e)=>{
+       
+        const isValid = /.{6,}/.test(e.target.value);
+        
+        if(isValid){
+            setUser({...user,password:e.target.value});
+            setErrors({...errors, passwordError: ""});
+        } else {
+            setErrors({...errors, passwordError: "Password Must be 6 characters"});
+            setUser({...user, password: ""})
+        }
+        
+    }
+    const handleConfirmPassword=(e)=>{
+       
+        
+        
+        if(user.password===e.target.value){
+            setUser({...user,confirmPass:e.target.value});
+            setErrors({...errors, confirmPasserror: ""});
+        } else {
+            setErrors({...errors, confirmPasserror: "Password not match"});
+            setUser({...user, confirmPass: ""})
+        }
+        
+    }
+    //handle login 
+    const handleRegister=(e)=>{
+        e.preventDefault()
+        createUserWithEmailAndPassword(user.email,user.confirmPass)
+        console.log(user.email,user.confirmPass,user.name)
+    }
+      //loading component 
+  let lodingElement;
+  if(loading){
+      lodingElement= <div className=' h-[40vh] w-full flex justify-center items-center'>
+      <Loading />
+     </div>
+  }
+
     return (
         <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
+            {
+                loading && lodingElement
+            }
         <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
              <Social />
-            <h1 className='text-lg text-center'>Login With email</h1>
 
-            <form className='w-full mt-12'>
+            <form onSubmit={handleRegister} className='w-full mt-12'>
                 <div className='mb-5'>
-                    <input autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />
+                    <input required onChange={handleNameChange}  autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />
+                    
                 </div>
                 <div className='mb-5'>
-                    <input  autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
+                    <input onChange={handleEmailChange}  autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
+                    <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.emailError}</p>
                 </div>
                 <div className='mb-5'>
-                    <input autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Password' />
+                    <input onChange={handlePasswordChange} autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Password' />
+                    <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.passwordError}</p>
                 </div>
                 <div className='mb-5'>
-                    <input autoComplete="off" className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Confirm Password' />
+                    <input onChange={handleConfirmPassword} autoComplete="off" className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Confirm Password' />
+                    <p className='text-red-600 text-sm font-semibold mt-2'>{errors.confirmPasserror}</p>
                 </div>
                 <div className='mb-4'>
-                    <button className='button-29 w-full'>Register</button>
+                    <button type='submit' className='button-29 w-full'>Register</button>
                 </div>
                 <div className='text-center'>
                     <p className='text-sm text-gray-900 font-semibold'> Have a account?<button onClick={()=>navigate('/login')} className='text-[#5468FF] font-bold'>Login</button></p>

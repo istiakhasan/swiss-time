@@ -10,6 +10,7 @@ import Footer from './components/Shared/Footer/Footer';
 import PrivateRoute from './components/Page/Login/PrivateRoute/PrivateRoute';
 import ManageInventory from './components/Page/ManageInventory/ManageInventory';
 import AddInventory from './components/Page/AddInventory/AddInventory';
+import Loading from './components/Shared/Loading/Loading';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           } />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/loading' element={<Loading />} />
         </Routes>
         <Footer />
        
