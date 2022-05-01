@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Inventory = () => {
   const { id } = useParams();
@@ -8,6 +8,7 @@ const Inventory = () => {
       restockItems:'',
       error:''
   })
+  const navigate=useNavigate()
   useEffect(() => {
     const url = `http://localhost:4000/inventory/${id}`;
     fetch(url)
@@ -73,9 +74,9 @@ const Inventory = () => {
   return (
     <main className="my-10">
       <section className="mb-11">
-        <div className="flex items-center justify-center">
-          <img className="mr-10 w-[40%]" src={product.image} alt="" />
-          <div className="w-[40%]">
+        <div className="flex items-center justify-center md:flex-row lg:flex-row flex-col">
+          <img className="mr-10 w-[40%] lg:h-[500px] object-cover" src={product.image} alt="" />
+          <div className="lg:w-[40%] px-6 lg:px-0 mt-6 lg:mt-0">
             <p className="text-sm text-white font-bold px-3 rounded-sm bg-green-800 w-fit">
               {product.status}
             </p>
@@ -89,7 +90,7 @@ const Inventory = () => {
             </p>
 
             <div>
-              <button onClick={handleReducQuantity} className="button-29">delivered</button>
+              <button onClick={handleReducQuantity} className="bg-[#FB4D19] text-white font-bold text-sm py-2 px-11 rounded shadow-[#7c3520] shadow-md">delivered</button>
             </div>
             {/* Restock Form */}
             <form onSubmit={handleSubmit} className="mt-5">
@@ -100,11 +101,13 @@ const Inventory = () => {
 
                  {inputValue.error}    
                     </p>
-                <button type="submit" className="px-16 py-2 rounded bg-green-700 shadow-md shadow-green-900 text-white  mt-2 ">Add</button>
+                   
+                <button type="submit" className="px-16 py-2 rounded bg-[#332CF2] shadow-md shadow-green-900 text-white  mt-2 ">Add</button>
                 
             </form>
           </div>
         </div>
+        <button onClick={()=>navigate('/manageinventory')} className=" button-29 my-20 mx-auto">Manage Inventories</button>
       </section>
     </main>
   );

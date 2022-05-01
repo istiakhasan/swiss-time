@@ -1,15 +1,17 @@
 import { TrashIcon } from '@heroicons/react/outline';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 
 const ManageInventory = () => {
-    const [products]=useProducts()
+    const [products]=useProducts();
+    const navigate=useNavigate();
 return (
 <main>
     <section>
         <div className='flex justify-between items-center w-[80%] mx-auto mt-5'>
            <p className='lg:text-3xl text-2xl '>Inventory List</p>
-            <button className='bg-[#332CF2] text-white font-bold px-2 lg:px-10 md:px-8 py-3 rounded-lg'>Add New Item </button>
+            <button onClick={()=>navigate('/addinventory')} className='bg-[#332CF2] text-white font-bold px-2 lg:px-10 md:px-8 py-3 rounded-lg'>Add New Item </button>
         </div>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

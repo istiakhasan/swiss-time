@@ -40,8 +40,8 @@ body{
   will-change: box-shadow,transform;
   font-size: 18px;
   display: block;
-  margin: 0 auto;
-  margin-top: 25px;
+ 
+ 
 }
 
 .button-29:focus {
@@ -130,45 +130,3 @@ body{
 
 
 
-
-/* delete button */
-.delete-button {
-  background: #e62143;
-  border-radius: 11px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
-  font-size: 1.15em;
-  font-weight: 500;
-  justify-content: center;
-  padding: 5px 18px;
-  text-align: center;
-  text-decoration: none;
-  text-decoration-skip-ink: auto;
-  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
-  text-underline-offset: 1px;
-  transition: all .2s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin: 0 auto;
-  word-break: break-word;
-  border: 0;
-}
-
-.delete-button:active,
-.delete-button:focus {
-  border-bottom-style: none;
-  border-color: #dadada;
-  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
-  outline: 0;
-}
-
-.delete-button:hover {
-  border-bottom-style: none;
-  border-color: #dadada;
-}
-
-
-/* add button */

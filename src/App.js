@@ -9,6 +9,7 @@ import Register from './components/Page/Login/Register/Register';
 import Footer from './components/Shared/Footer/Footer';
 import PrivateRoute from './components/Page/Login/PrivateRoute/PrivateRoute';
 import ManageInventory from './components/Page/ManageInventory/ManageInventory';
+import AddInventory from './components/Page/AddInventory/AddInventory';
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
           <Route path='/manageinventory' element={
             <PrivateRoute>
               <ManageInventory />
+            </PrivateRoute>
+          } />
+          <Route path='/addinventory' element={
+            <PrivateRoute>
+              <AddInventory />
             </PrivateRoute>
           } />
           <Route path='/login' element={<Login />} />

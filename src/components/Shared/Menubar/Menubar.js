@@ -42,7 +42,7 @@ const Menubar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <h1 className="text-2xl font-bold text-white">Swiss Time</h1>
+                  <h1 className="lg:text-2xl text-xl font-bold text-white">Swiss Time</h1>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -68,7 +68,7 @@ const Menubar = () => {
               
                  { user ?  <button
                  onClick={handleSignOut}
-                 className=" bg-white px-6 text-[#F45762] lg:px-6 hover:bg-[#F45762] hover:text-white  font-bold lg:mx-6 flex items-center justify-center  py-2 rounded-lg">
+                 className=" bg-white md-px-4 px-2 text-[#F45762] lg:px-6 hover:bg-[#F45762] hover:text-white  font-bold lg:mx-6 flex items-center justify-center  py-2 rounded-lg">
                   <LogoutIcon  className=" w-6 h-6 " />
                    Log Out</button>:
                     
