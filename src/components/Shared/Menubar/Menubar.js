@@ -12,17 +12,8 @@ const Menubar = () => {
   const handleSignOut=()=>{
      signOut(auth)
   }
-  const navigation = [
-    { name: "Home", to: "/", current: false },
-    { name: "Team", to: "/", current: false },
-    { name: "Projects", to: "/", current: false },
-    { name: "About", to: "/about", current: false },
-    { name: "Order", to: "/order", current: false },
-  ];
+ 
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
   return (
     <Disclosure as="nav" className="gradiant-color sticky top-0 z-10">
       {({ open }) => (
@@ -46,21 +37,46 @@ const Menubar = () => {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.to}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-white font-bold hover:bg-white hover:text-[#5572FF] ",
-                          "px-3 py-2 rounded-md text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                   
+                    {/* custom link */}
+                     <Link 
+                        to="/home"
+                        className="text-white font-bold  hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       Home
+                      </Link> 
+                      {
+                        user && (
+                           <>
+                            <Link 
+                        to="/addinventory"
+                        className="text-white font-bold  hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       Add Items
+                      </Link> 
+                     <Link 
+                        to="/manageinventory"
+                        className="text-white font-bold hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       Manage Items
+                      </Link> 
+                   
+                     <Link 
+                        to="/manageinventory"
+                        className="text-white font-bold hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       My Items
+                      </Link> 
+                           </>
+                        )
+                      }
+
+                      <Link 
+                        to="/manageinventory"
+                        className="text-white font-bold hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       Blogs
+                      </Link> 
+                      <Link 
+                        to="/manageinventory"
+                        className="text-white font-bold hover:bg-white hover:text-[#5572FF] px-3 py-2 rounded-md text-sm ">
+                       Contact us
+                      </Link> 
                   </div>
                 </div>
               </div>
@@ -84,23 +100,63 @@ const Menubar = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+            <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-center">
+              
                 <Disclosure.Button
-                  key={item.name}
+                 
                   as={Link}
-                  to={item.to}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
+                  to="/"
+                  className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
                 >
-                  {item.name}
+                 Home
                 </Disclosure.Button>
-              ))}
+               {
+                 user && (
+                   <>
+                      <Disclosure.Button
+                 
+                 as={Link}
+                 to="/addinventory"
+                 className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+               >
+                Add Items
+               </Disclosure.Button>
+               <Disclosure.Button
+                
+                 as={Link}
+                 to="/manageinventory"
+                 className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+               >
+                Manage Items
+               </Disclosure.Button>
+               <Disclosure.Button
+                
+                 as={Link}
+                 to="/"
+                 className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+               >
+                 My Items
+               </Disclosure.Button>
+                   </>
+                 )
+               }
+                <Disclosure.Button
+                 
+                  as={Link}
+                  to="/"
+                  className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+                >
+                 Blogs
+                </Disclosure.Button>
+                <Disclosure.Button
+                 
+                  as={Link}
+                  to="/"
+                  className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
+                >
+                 Contact Us
+                </Disclosure.Button>
+           
             </div>
           </Disclosure.Panel>
         </>
