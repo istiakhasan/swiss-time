@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form";
 import './Addinventory.css'
 
 const AddInventory = () => {
-const { register, handleSubmit } = useForm();
+const { register, handleSubmit,reset } = useForm();
 const onSubmit = data => {
     axios.post('http://localhost:4000/inventory',data)
     .then(res=>{
-        console.log(res.data)
+        const data=res.data
+        if(data.insertedId){
+         reset()
+        }
     })
     
     console.log(data)};

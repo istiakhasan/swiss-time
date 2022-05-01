@@ -1,11 +1,30 @@
-import { TrashIcon } from '@heroicons/react/outline';
+
+import axios from 'axios';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
+import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem';
 
 const ManageInventory = () => {
-    const [products]=useProducts();
+    const [products,setProducts]=useProducts();
     const navigate=useNavigate();
+    const handleDelteItem=(id)=>{
+        const  confirm=window.confirm("Are you sure to delete this item?")
+        if(confirm){
+            const url=`http://localhost:4000/inventory/${id}`;
+            axios.delete(url)
+            .then(res=>{
+             const data=res.data
+                if(data.deletedCount>0){
+                    const rest=products.filter(product=>product._id !==id)
+                    setProducts(rest)
+                }
+                
+            })
+        }
+    
+    }
+   
 return (
 <main>
     <section>
@@ -40,24 +59,9 @@ return (
                 <tbody>
                     {
                         products.map(product=>(
-                            <tr
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" class="px-6  py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                               {product.name}
-                            </th>
-                            <td class="px-6 py-4">
-                               {product.email}
-                            </td>
-                            <td class="px-6 py-4 ">
-                               {product.status}
-                            </td>
-                            <td class="px-6 py-4">
-                                ${product.price}
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                <button className='bg-[#E62143] mx-auto px-3 py-2 text-white font-bold rounded-lg flex justify-center items-center'><TrashIcon className='w-4 h-4' />Delete </button>
-                            </td>
-                        </tr>
+                            <SingleInventoryItem 
+                            handleDelteItem={handleDelteItem}
+                            key={product._id} product={product} />
                         ))
                     }
                
