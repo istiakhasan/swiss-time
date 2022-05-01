@@ -21,12 +21,8 @@ const Login = () => {
     });
 
   //loading component 
-  let lodingElement;
-  if(loading){
-      lodingElement= <div className=' h-[40vh] w-full flex justify-center items-center'>
-      <Loading />
-     </div>
-  }
+  
+
     const [errors,setErrors]=useState({
         emailError:'',
         passwordError:''
@@ -73,12 +69,20 @@ const Login = () => {
         signInWithEmailAndPassword(user.email,user.password)
        
     }
+    if(loading){
+        return  <div className=' h-[40vh] w-full flex justify-center items-center'>
+          <Loading />
+         </div>
+      }
+
+      let errorElement;
+  if(error){
+    errorElement=<p className='text-red-900 text-sm text-center font-semibold'>{error.message}</p>
+  }
 
     return (
         <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
-             {
-                 loading && lodingElement
-             }
+          
               <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
                  <Social />
 
@@ -96,6 +100,7 @@ const Login = () => {
                           <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.passwordError}</p>
                       </div>
                       <div className='mb-4'>
+                          {errorElement}
                           <button type='submit' className='button-29 w-full'>Login</button>
                       </div>
                       <div className='text-center'>

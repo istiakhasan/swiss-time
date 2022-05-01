@@ -88,18 +88,21 @@ const Register = () => {
         console.log(user.email,user.confirmPass,user.name)
     }
       //loading component 
-  let lodingElement;
+  
   if(loading){
-      lodingElement= <div className=' h-[40vh] w-full flex justify-center items-center'>
-      <Loading />
-     </div>
+      return   <div className=' h-[40vh] w-full flex justify-center items-center'>
+       <Loading />
+       </div>
+  }
+  //error 
+  let errorElement;
+  if(error){
+    errorElement=<p className='text-red-900 text-sm text-center font-semibold'>{error.message}</p>
   }
 
     return (
         <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
-            {
-                loading && lodingElement
-            }
+           
         <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
              <Social />
 
@@ -121,6 +124,7 @@ const Register = () => {
                     <p className='text-red-600 text-sm font-semibold mt-2'>{errors.confirmPasserror}</p>
                 </div>
                 <div className='mb-4'>
+                    {errorElement}
                     <button type='submit' className='button-29 w-full'>Register</button>
                 </div>
                 <div className='text-center'>
