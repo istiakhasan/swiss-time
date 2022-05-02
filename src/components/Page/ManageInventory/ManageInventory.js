@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import {Helmet} from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useProducts from '../../../hooks/useProducts';
 import Footer from '../../Shared/Footer/Footer';
 import Menubar from '../../Shared/Menubar/Menubar';
@@ -20,6 +21,7 @@ const ManageInventory = () => {
             .then(res=>{
              const data=res.data
                 if(data.deletedCount>0){
+                    toast.success("Deleted Successfully")
                     const rest=products.filter(product=>product._id !==id)
                     setProducts(rest)
                 }

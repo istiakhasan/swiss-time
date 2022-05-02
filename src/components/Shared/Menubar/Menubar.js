@@ -42,7 +42,7 @@ return (
         </div>
         <div className="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
           <div className="flex-shrink-0  flex items-center">
-            <h1 className="lg:text-2xl  text-xl font-bold text-white">Swiss Time</h1>
+            <p className="lg:text-2xl  text-xl font-bold text-white">Swiss Time</p>
           </div>
           <div className="hidden  md:block sm:ml-6">
             <div className="flex space-x-4">

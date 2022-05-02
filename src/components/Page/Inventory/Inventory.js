@@ -89,7 +89,7 @@ const Inventory = () => {
               {product.status}
             </p>
             <p className="text-sm text-gray-500">Product Id:{product._id}</p>
-            <p className="text-2xl">Product Name:{product.name}</p>
+            <h1 className="text-2xl">Product Name:{product.name}</h1>
             <p className="text-[16px] text-gray-600">{product.description}</p>
             <p className="mt-4 text-2xl">${product.price}</p>
             <p className="text-sm text-gray-500">Quantity:{product.quantity}</p>
