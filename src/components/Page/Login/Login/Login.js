@@ -6,15 +6,18 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.config';
 import Loading from '../../../Shared/Loading/Loading';
 import axios from 'axios';
+import useToken from '../../../../hooks/useToken';
 const Login = () => {
     const navigate=useNavigate();
     const location=useLocation()
+    
     const [
         signInWithEmailAndPassword,
         signInUser,
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+    const [token]=useToken(signInUser)
     const [user,setUser]=useState({
         email:"",
         password:'',
@@ -62,7 +65,7 @@ const Login = () => {
     const from=location?.state?.from?.pathname || '/'
     
     useEffect(()=>{
-        if(signInUser){
+        if(token){
             navigate(from,{replace:true})
         }
     },[signInUser])
@@ -73,13 +76,13 @@ const Login = () => {
         const email=user.email
         const password=user.password
         signInWithEmailAndPassword(email,password)
-        axios.post(`http://localhost:4000/login`,{
-            email
-        })
-        .then(res=>{
-            const data=res.data 
-            localStorage.setItem('accessToken',data.accessToken)
-        })
+        // axios.post(`http://localhost:4000/login`,{
+        //     email
+        // })
+        // .then(res=>{
+        //     const data=res.data 
+        //     localStorage.setItem('accessToken',data.accessToken)
+        // })
        
     }
     if(loading){

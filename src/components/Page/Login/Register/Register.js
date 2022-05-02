@@ -2,25 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.config';
+import useToken from '../../../../hooks/useToken';
 import Loading from '../../../Shared/Loading/Loading';
 import Social from '../Social/Social';
 
 const Register = () => {
     const navigate=useNavigate();
-    const [registerUser]=useAuthState(auth);
-    const location=useLocation();
-
-  
-    let {from} = location.state || {from: {pathname: "/"}};
     const [
         createUserWithEmailAndPassword,
-        newRegisterUser,
+        user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+   
+      const [token]=useToken(user)
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   
-    const [user,setUser]=useState({
+    const [newUser,setNewUser]=useState({
         name:'',
         email:"",
         password:'',
@@ -29,11 +27,11 @@ const Register = () => {
    
   
     useEffect(()=>{
-        if(registerUser){
-             navigate(from,{replace:true})
-           
+        if(token){
+            console.log(token)
+             navigate('/home')
         }
-    },[registerUser])
+    },[user])
    
    
     const [errors,setErrors]=useState({
@@ -42,20 +40,20 @@ const Register = () => {
         confirmPasserror:''
     });
     const handleNameChange=(e)=>{
-      setUser({...user,name:e.target.value})
+      setNewUser({...newUser,name:e.target.value})
     }
     const handleEmailChange=(e)=>{
        
         const isValid = /\S+@\S+\.\S+/.test(e.target.value);
         if(isValid){
-            setUser({...user,email:e.target.value}) 
+            setNewUser({...newUser,email:e.target.value}) 
             setErrors({...errors, emailError: ""}) 
                
         } else {
             const newError={...errors}
             newError.emailError="Invalid Email"
             setErrors(newError)
-            setUser({...user, email: ""})
+            setNewUser({...newUser, email: ""})
         }
 
         
@@ -67,11 +65,11 @@ const Register = () => {
         const isValid = /.{6,}/.test(e.target.value);
         
         if(isValid){
-            setUser({...user,password:e.target.value});
+            setNewUser({...newUser,password:e.target.value});
             setErrors({...errors, passwordError: ""});
         } else {
             setErrors({...errors, passwordError: "Password Must be 6 characters"});
-            setUser({...user, password: ""})
+            setNewUser({...newUser, password: ""})
         }
         
     }
@@ -79,12 +77,12 @@ const Register = () => {
        
         
         
-        if(user.password===e.target.value){
-            setUser({...user,confirmPass:e.target.value});
+        if(newUser.password===e.target.value){
+            setNewUser({...newUser,confirmPass:e.target.value});
             setErrors({...errors, confirmPasserror: ""});
         } else {
             setErrors({...errors, confirmPasserror: "Password not match"});
-            setUser({...user, confirmPass: ""})
+            setNewUser({...newUser, confirmPass: ""})
         }
         
     }
@@ -92,8 +90,8 @@ const Register = () => {
     //handle login 
     const handleRegister=async(e)=>{
         e.preventDefault()
-        await createUserWithEmailAndPassword(user.email,user.confirmPass)
-        await updateProfile({ displayName: user.name });
+        await createUserWithEmailAndPassword(newUser.email,newUser.confirmPass)
+        await updateProfile({ displayName: newUser.name });
        
     }
       //loading component 

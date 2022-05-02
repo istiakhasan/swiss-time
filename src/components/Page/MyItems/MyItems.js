@@ -28,6 +28,7 @@ const MyItems = () => {
         .catch(error=>{
             if(error?.response?.status===403 || error?.response?.status===401){
                 signOut(auth)
+                // localStorage.removeItem('accessToken')
                 navigate('/login')
             }
         })
