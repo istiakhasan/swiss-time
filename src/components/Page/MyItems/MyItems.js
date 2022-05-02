@@ -1,21 +1,35 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.config';
 import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem'
 
 const MyItems = () => {
     const [user]=useAuthState(auth);
     const[products,setProducts]= useState([]);
+    const navigate=useNavigate()
    
    
     useEffect(()=>{
-         const email=user.email 
+         const email=user?.email 
        
-         axios.get(`http://localhost:4000/myitems?email=${email}`)
+         axios.get(`http://localhost:4000/myitems?email=${email}`,{
+             headers:{
+                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
+             }
+         })
         .then(res=>{
+            
             setProducts(res.data)
           
+        })
+        .catch(error=>{
+            if(error?.response?.status===403 || error?.response?.status===401){
+                signOut(auth)
+                navigate('/login')
+            }
         })
     },[user])
 
@@ -33,6 +47,8 @@ const MyItems = () => {
                 }
                 
             })
+           
+            
         }
     
     }

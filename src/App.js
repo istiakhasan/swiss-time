@@ -15,6 +15,7 @@ import MyItems from './components/Page/MyItems/MyItems';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './components/Page/Blog/Blog';
+import NotFound from './components/Page/NotFound/NotFound';
 
 
 function App() {
@@ -47,10 +48,11 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={<Blog />} />
+          <Route path='*' element={<NotFound />} />
          
         </Routes>
-       <ToastContainer />
         <Footer />
+       <ToastContainer />
        
     </div>
   );

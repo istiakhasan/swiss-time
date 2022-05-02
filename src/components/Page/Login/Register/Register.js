@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.config';
 import Loading from '../../../Shared/Loading/Loading';
@@ -9,14 +9,16 @@ const Register = () => {
     const navigate=useNavigate();
     const [registerUser]=useAuthState(auth);
     const location=useLocation();
+
   
     let {from} = location.state || {from: {pathname: "/"}};
     const [
         createUserWithEmailAndPassword,
-        loginUser,
+        newRegisterUser,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   
     const [user,setUser]=useState({
         name:'',
@@ -24,10 +26,12 @@ const Register = () => {
         password:'',
         confirmPass: ""
     });
+   
   
     useEffect(()=>{
         if(registerUser){
-            navigate(from,{replace:true})
+             navigate(from,{replace:true})
+           
         }
     },[registerUser])
    
@@ -84,10 +88,12 @@ const Register = () => {
         }
         
     }
+   
     //handle login 
-    const handleRegister=(e)=>{
+    const handleRegister=async(e)=>{
         e.preventDefault()
-        createUserWithEmailAndPassword(user.email,user.confirmPass)
+        await createUserWithEmailAndPassword(user.email,user.confirmPass)
+        await updateProfile({ displayName: user.name });
        
     }
       //loading component 
@@ -111,19 +117,19 @@ const Register = () => {
 
             <form onSubmit={handleRegister} className='w-full mt-12'>
                 <div className='mb-5'>
-                    <input required onChange={handleNameChange}  autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />
+                    <input required onChange={handleNameChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />
                     
                 </div>
                 <div className='mb-5'>
-                    <input onChange={handleEmailChange}  autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
+                    <input onChange={handleEmailChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
                     <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.emailError}</p>
                 </div>
                 <div className='mb-5'>
-                    <input onChange={handlePasswordChange} autoComplete='off' className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Password' />
+                    <input onChange={handlePasswordChange}  className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Password' />
                     <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.passwordError}</p>
                 </div>
                 <div className='mb-5'>
-                    <input onChange={handleConfirmPassword} autoComplete="off" className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Confirm Password' />
+                    <input onChange={handleConfirmPassword}  className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="password" placeholder='Confirm Password' />
                     <p className='text-red-600 text-sm font-semibold mt-2'>{errors.confirmPasserror}</p>
                 </div>
                 <div className='mb-4'>

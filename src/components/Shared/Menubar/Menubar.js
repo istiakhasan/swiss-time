@@ -1,12 +1,13 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LogoutIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import "./Menubar.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.config";
 import { signOut } from "firebase/auth";
 import LineLoading from "../LineLoading/LineLoading";
+
 
 const Menubar = () => {
   const [user,loading]=useAuthState(auth);
@@ -22,7 +23,7 @@ const Menubar = () => {
  
 
   return (
-    <Disclosure as="nav" className="gradiant-color sticky top-0 z-10">
+    <Disclosure as="nav" className="gradiant-color sticky top-0 z-10 ">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

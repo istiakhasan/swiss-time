@@ -5,6 +5,7 @@ import Social from '../Social/Social';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.config';
 import Loading from '../../../Shared/Loading/Loading';
+import axios from 'axios';
 const Login = () => {
     const navigate=useNavigate();
     const location=useLocation()
@@ -69,7 +70,16 @@ const Login = () => {
     //handle login 
     const handleLoginSubmit=(e)=>{
         e.preventDefault()
-        signInWithEmailAndPassword(user.email,user.password)
+        const email=user.email
+        const password=user.password
+        signInWithEmailAndPassword(email,password)
+        axios.post(`http://localhost:4000/login`,{
+            email
+        })
+        .then(res=>{
+            const data=res.data 
+            localStorage.setItem('accessToken',data.accessToken)
+        })
        
     }
     if(loading){
