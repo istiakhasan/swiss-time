@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.config';
@@ -25,9 +25,12 @@ const Register = () => {
         confirmPass: ""
     });
   
-    if(registerUser){
-        navigate(from,{replace:true})
-    }
+    useEffect(()=>{
+        if(registerUser){
+            navigate(from,{replace:true})
+        }
+    },[registerUser])
+   
    
     const [errors,setErrors]=useState({
         emailError:'',
@@ -85,7 +88,7 @@ const Register = () => {
     const handleRegister=(e)=>{
         e.preventDefault()
         createUserWithEmailAndPassword(user.email,user.confirmPass)
-        console.log(user.email,user.confirmPass,user.name)
+       
     }
       //loading component 
   

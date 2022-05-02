@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './Addinventory.css'
+import { toast } from 'react-toastify';
+
 
 const AddInventory = () => {
 const { register, handleSubmit,reset } = useForm();
@@ -11,6 +13,7 @@ const onSubmit = data => {
         const data=res.data
         if(data.insertedId){
          reset()
+         toast.success("Added Item successfully")
         }
     })
     
@@ -28,6 +31,7 @@ return (
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Photo URL' type="text" {...register("image")} />
         <input required className='  border border-[#332CF2] rounded hover:bg-[#332CF2] hover:text-white font-bold cursor-pointer pl-5 py-4' type="submit" />
     </form>
+ 
 </main>
 );
 };

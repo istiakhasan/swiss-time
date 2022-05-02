@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import google from '../../../../images/icon/google.png'
 import gitimg from '../../../../images/icon/github.png'
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth'
@@ -12,9 +12,12 @@ const Social = () => {
     const location=useLocation();
     const from=location?.state?.from?.pathname || '/'
     const navigate=useNavigate();
-    if(googleUser){
-        navigate(from,{replace:true})
-    }
+    useEffect(()=>{
+        if(googleUser){
+            navigate(from,{replace:true})
+        }
+    },[googleUser])
+   
       //loading component 
   let lodingElement;
   if(loading){

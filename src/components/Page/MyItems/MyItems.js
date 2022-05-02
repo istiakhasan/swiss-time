@@ -1,14 +1,25 @@
-
 import axios from 'axios';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import useProducts from '../../../hooks/useProducts';
-import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.config';
+import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem'
 
-const ManageInventory = () => {
-    const [products,setProducts]=useProducts();
- 
-    const navigate=useNavigate();
+const MyItems = () => {
+    const [user]=useAuthState(auth);
+    const[products,setProducts]= useState([]);
+   
+   
+    useEffect(()=>{
+         const email=user.email 
+       
+         axios.get(`http://localhost:4000/myitems?email=${email}`)
+        .then(res=>{
+            setProducts(res.data)
+          
+        })
+    },[user])
+
+    //handle remove 
     const handleDelteItem=(id)=>{
         const  confirm=window.confirm("Are you sure to delete this item?")
         if(confirm){
@@ -25,14 +36,13 @@ const ManageInventory = () => {
         }
     
     }
-   
-return (
-<main>
+    return (
+        <main>
     <section>
-        <div className='flex justify-between items-center w-[80%] mx-auto mt-5'>
-           <p className='lg:text-3xl text-2xl '>Inventory List</p>
-            <button onClick={()=>navigate('/addinventory')} className='bg-[#332CF2] text-white font-bold px-2 lg:px-10 md:px-8 py-3 rounded-lg'>Add New Item </button>
-        </div>
+        
+           <p className='lg:text-3xl text-2xl text-center mt-10'>My Item List</p>
+            
+      
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         
@@ -58,13 +68,17 @@ return (
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                 
+                     {
+
+                        
                         products.map(product=>(
                             <SingleInventoryItem 
-                            handleDelteItem={handleDelteItem}
+                             handleDelteItem={handleDelteItem}
                             key={product._id} product={product} />
                         ))
-                    }
+                        
+                    } 
                
                     
                     
@@ -74,7 +88,7 @@ return (
 
     </section>
 </main>
-);
+    );
 };
 
-export default ManageInventory;
+export default MyItems;

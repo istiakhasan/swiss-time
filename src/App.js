@@ -11,6 +11,11 @@ import PrivateRoute from './components/Page/Login/PrivateRoute/PrivateRoute';
 import ManageInventory from './components/Page/ManageInventory/ManageInventory';
 import AddInventory from './components/Page/AddInventory/AddInventory';
 import Loading from './components/Shared/Loading/Loading';
+import MyItems from './components/Page/MyItems/MyItems';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Blog from './components/Page/Blog/Blog';
+
 
 function App() {
   return (
@@ -34,10 +39,17 @@ function App() {
               <AddInventory />
             </PrivateRoute>
           } />
+          <Route path='/myitems' element={
+            <PrivateRoute>
+              <MyItems />
+            </PrivateRoute>
+          } />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/loading' element={<Loading />} />
+          <Route path='/blogs' element={<Blog />} />
+         
         </Routes>
+       <ToastContainer />
         <Footer />
        
     </div>

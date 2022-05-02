@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import Social from '../Social/Social';
@@ -60,9 +60,12 @@ const Login = () => {
     }
     const from=location?.state?.from?.pathname || '/'
     
-    if(signInUser){
-        navigate(from,{replace:true})
-    }
+    useEffect(()=>{
+        if(signInUser){
+            navigate(from,{replace:true})
+        }
+    },[signInUser])
+  
     //handle login 
     const handleLoginSubmit=(e)=>{
         e.preventDefault()
