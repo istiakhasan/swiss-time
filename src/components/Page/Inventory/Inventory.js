@@ -25,6 +25,7 @@ const Inventory = () => {
           alert("Quantity is 0 ")
           return
       }
+      
       const newQuantity={...product}
       let quantity=newQuantity.quantity-1 
       newQuantity.quantity=quantity
