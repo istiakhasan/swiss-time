@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
+import PageTitle from "../../../Shared/PageTitle/PageTitle";
 import Banner from "../Banner/Banner/Banner";
 import InventoryItems from "../InventoryItems/InventoryItems";
 import LatestBlog from "../LatestBlog/LatestBlog";
@@ -10,9 +10,7 @@ const Home = () => {
 
 return (
 <main className="mt-8 container mx-auto">
-  <Helmet>
-    <title>Home</title>
-  </Helmet>
+  <PageTitle title={"home"} />
   <Banner />
   <InventoryItems />
   <NewArrivals />

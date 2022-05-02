@@ -2,7 +2,7 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.config';
 import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem'
@@ -29,7 +29,6 @@ const MyItems = () => {
         .catch(error=>{
             if(error?.response?.status===403 || error?.response?.status===401){
                 signOut(auth)
-                 localStorage.removeItem('accessToken')
                 navigate('/login')
             }
         })
@@ -56,9 +55,9 @@ const MyItems = () => {
     }
     return (
         <main>
-            <Helmet>
-        <title>my products</title>
-      </Helmet>
+        <Helmet>
+         <title>my products</title>
+        </Helmet>
     <section>
         
            <p className='lg:text-3xl text-2xl text-center mt-10'>My Item List</p>

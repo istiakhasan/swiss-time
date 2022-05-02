@@ -153,7 +153,7 @@ const Menubar = () => {
                <Disclosure.Button
                 
                  as={Link}
-                 to="/"
+                 to="/myitems"
                  className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
                >
                  My Items
@@ -164,7 +164,7 @@ const Menubar = () => {
                 <Disclosure.Button
                  
                   as={Link}
-                  to="/"
+                  to="/blogs"
                   className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
                 >
                  Blogs
@@ -172,7 +172,7 @@ const Menubar = () => {
                 <Disclosure.Button
                  
                   as={Link}
-                  to="/"
+                  to="/contactus"
                   className="hover:bg-white px-6 lg:px-12 text-white hover:text-[#5572FF] font-bold lg:mx-6  py-2 rounded-lg"
                 >
                  Contact Us

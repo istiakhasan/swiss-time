@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import Social from '../Social/Social';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.config';
 import Loading from '../../../Shared/Loading/Loading';
-import axios from 'axios';
 import useToken from '../../../../hooks/useToken';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet-async'
+import { toast } from 'react-toastify';
 const Login = () => {
     const navigate=useNavigate();
     const location=useLocation()
+    const emailRef=useRef()
     
     const [
         signInWithEmailAndPassword,
@@ -18,12 +19,16 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+    //create jwt token
     const [token]=useToken(signInUser)
     const [user,setUser]=useState({
         email:"",
         password:'',
       
     });
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+      );
 
   //loading component 
   
@@ -33,9 +38,9 @@ const Login = () => {
         passwordError:''
     });
     const handleEmailChange=(e)=>{
-        const emailRegex = /\S+@\S+\.\S+/;
-        const validEmail = emailRegex.test(e.target.value);
-        if(validEmail){
+       
+        const isEmailValid = /\S+@\S+\.\S+/.test(e.target.value);
+        if(isEmailValid){
             setUser({...user,email:e.target.value}) 
             setErrors({...errors, emailError: ""}) 
                
@@ -66,7 +71,7 @@ const Login = () => {
     const from=location?.state?.from?.pathname || '/'
     
     useEffect(()=>{
-        if(token){
+        if(signInUser){
             navigate(from,{replace:true})
         }
     },[signInUser])
@@ -77,13 +82,7 @@ const Login = () => {
         const email=user.email
         const password=user.password
         signInWithEmailAndPassword(email,password)
-        // axios.post(`http://localhost:4000/login`,{
-        //     email
-        // })
-        // .then(res=>{
-        //     const data=res.data 
-        //     localStorage.setItem('accessToken',data.accessToken)
-        // })
+     
        
     }
     if(loading){
@@ -92,10 +91,23 @@ const Login = () => {
          </div>
       }
 
-      let errorElement;
+let errorElement;
   if(error){
     errorElement=<p className='text-red-900 text-sm text-center font-semibold'>{error.message}</p>
   }
+   //reset Password
+  
+   const resetPassword = async (e) => {
+    const email = emailRef.current.value;
+   
+    if (email) {
+        await sendPasswordResetEmail(email);
+        toast.success('Sent email successfully');
+    }
+    else{
+        toast.error('please enter your email address');
+    }
+}
 
     return (
         <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
@@ -111,7 +123,7 @@ const Login = () => {
 
                   <form onSubmit={handleLoginSubmit} className='w-full mt-12'>
                       <div className='mb-5'>
-                          <input required name='email' onChange={handleEmailChange} className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
+                          <input ref={emailRef} required name='email' onChange={handleEmailChange} className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
                           <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.emailError}</p>
                          
                       </div>
@@ -125,6 +137,7 @@ const Login = () => {
                       </div>
                       <div className='text-center'>
                           <p className='text-sm text-gray-900 font-semibold'>Don't have a account?<button onClick={()=>navigate('/register')} className='text-[#5468FF] font-bold'>Register</button></p>
+                          <p className='text-sm text-gray-900 font-semibold'>Forget password?<button onClick={resetPassword} className='text-[#aa4747] font-bold'>Reset</button></p>
                       </div>
                       
 

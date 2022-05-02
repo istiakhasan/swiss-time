@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
-import Helmet from 'react-helmet';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import {  useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.config';
 import useToken from '../../../../hooks/useToken';
 import Loading from '../../../Shared/Loading/Loading';
 import Social from '../Social/Social';
+import {Helmet} from 'react-helmet-async'
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const navigate=useNavigate();
+    const emailRef=useRef()
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+      );
    
       const [token]=useToken(user)
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
@@ -28,8 +33,8 @@ const Register = () => {
    
   
     useEffect(()=>{
-        if(token){
-            console.log(token)
+        if(user){
+           
              navigate('/home')
         }
     },[user])
@@ -107,6 +112,19 @@ const Register = () => {
   if(error){
     errorElement=<p className='text-red-900 text-sm text-center font-semibold'>{error.message}</p>
   }
+  //reset Password
+  
+  const resetPassword = async (e) => {
+    const email = emailRef.current.value;
+   
+    if (email) {
+        await sendPasswordResetEmail(email);
+        toast.success('Mail Sent');
+    }
+    else{
+        toast.error('please enter your email address');
+    }
+}
 
     return (
         <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
@@ -122,7 +140,7 @@ const Register = () => {
                     <input required onChange={handleNameChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />     
                 </div>
                 <div className='mb-5'>
-                    <input onChange={handleEmailChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
+                    <input ref={emailRef} onChange={handleEmailChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />
                     <p className='text-red-600 text-sm font-semibold mt-2'>  {errors.emailError}</p>
                 </div>
                 <div className='mb-5'>
@@ -139,7 +157,8 @@ const Register = () => {
                 </div>
                 <div className='text-center'>
                     <p className='text-sm text-gray-900 font-semibold'> Have a account?<button onClick={()=>navigate('/login')} className='text-[#5468FF] font-bold'>Login</button></p>
-                </div>
+                    <p className='text-sm text-gray-900 font-semibold'>Forget password?<button onClick={resetPassword} className='text-[#aa4747] font-bold'>Reset</button></p>     
+                 </div>
                 
 
             </form>

@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './components/Page/Blog/Blog';
 import NotFound from './components/Page/NotFound/NotFound';
+import ContactUs from './components/Page/ContactUs/ContactUs';
 
 
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={<Blog />} />
+          <Route path='/contactus' element={<ContactUs />} />
          
           <Route path='*' element={<NotFound  />} />
         </Routes>

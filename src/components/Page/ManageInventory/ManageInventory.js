@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React from 'react';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem';

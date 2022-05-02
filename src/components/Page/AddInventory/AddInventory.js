@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import './Addinventory.css'
 import { toast } from 'react-toastify';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet-async'
 
 
 const AddInventory = () => {
@@ -18,7 +18,7 @@ const onSubmit = data => {
         }
     })
     
-    console.log(data)};
+    };
 return (
 <main className='w-4/12 shadow-lg custom-shadow p-5  mx-auto my-4'>
 <Helmet>
