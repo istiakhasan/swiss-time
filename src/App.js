@@ -10,15 +10,17 @@ import Footer from './components/Shared/Footer/Footer';
 import PrivateRoute from './components/Page/Login/PrivateRoute/PrivateRoute';
 import ManageInventory from './components/Page/ManageInventory/ManageInventory';
 import AddInventory from './components/Page/AddInventory/AddInventory';
-import Loading from './components/Shared/Loading/Loading';
 import MyItems from './components/Page/MyItems/MyItems';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './components/Page/Blog/Blog';
 import NotFound from './components/Page/NotFound/NotFound';
 
 
+
 function App() {
+
+
   return (
     <div>
         <Menubar />
@@ -48,11 +50,12 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={<Blog />} />
-          <Route path='*' element={<NotFound />} />
          
+          <Route path='*' element={<NotFound  />} />
         </Routes>
-        <Footer />
+          <Footer />
        <ToastContainer />
+    
        
     </div>
   );

@@ -7,6 +7,7 @@ import auth from '../../../../firebase.config';
 import Loading from '../../../Shared/Loading/Loading';
 import axios from 'axios';
 import useToken from '../../../../hooks/useToken';
+import Helmet from 'react-helmet';
 const Login = () => {
     const navigate=useNavigate();
     const location=useLocation()
@@ -98,6 +99,9 @@ const Login = () => {
 
     return (
         <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
+            <Helmet>
+        <title>login</title>
+         </Helmet>
           
               <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
                  <Social />

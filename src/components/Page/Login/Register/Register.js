@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Helmet from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.config';
 import useToken from '../../../../hooks/useToken';
@@ -109,14 +110,16 @@ const Register = () => {
 
     return (
         <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
+            <Helmet>
+        <title>register</title>
+         </Helmet>
            
         <div className='w-[400px] rounded-md h-fit   bg-white border-2  mt-5 py-10 px-8'>
              <Social />
 
             <form onSubmit={handleRegister} className='w-full mt-12'>
                 <div className='mb-5'>
-                    <input required onChange={handleNameChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />
-                    
+                    <input required onChange={handleNameChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="text" placeholder='Name' />     
                 </div>
                 <div className='mb-5'>
                     <input onChange={handleEmailChange}   className='w-full outline-none border-2 pl-5 rounded-xl py-3' type="email" placeholder='Email' />

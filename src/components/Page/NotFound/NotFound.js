@@ -1,11 +1,17 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
-   
+
+
+
   
 return (
  <main className=''>
+     <Helmet>
+        <title>not-found</title>
+      </Helmet>
      <div className="flex items-center justify-center h-[100vh] w-full   bg-gradient-to-r from-indigo-600 to-blue-400">
     <div className="px-40 py-20 bg-white rounded-md shadow-xl">
         <div className="flex flex-col items-center">

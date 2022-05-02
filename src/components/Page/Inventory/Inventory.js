@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Inventory = () => {
@@ -73,6 +74,9 @@ const Inventory = () => {
 
   return (
     <main className="my-10">
+      <Helmet>
+        <title>product-details</title>
+      </Helmet>
       <section className="mb-11">
         <div className="flex items-center justify-center md:flex-row lg:flex-row flex-col">
           <img className="mr-10 w-[40%] lg:h-[500px] object-cover" src={product.image} alt="" />

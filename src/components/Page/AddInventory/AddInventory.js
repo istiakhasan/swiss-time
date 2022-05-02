@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import './Addinventory.css'
 import { toast } from 'react-toastify';
+import Helmet from 'react-helmet';
 
 
 const AddInventory = () => {
@@ -20,6 +21,9 @@ const onSubmit = data => {
     console.log(data)};
 return (
 <main className='w-4/12 shadow-lg custom-shadow p-5  mx-auto my-4'>
+<Helmet>
+        <title>add-product</title>
+      </Helmet>
     <form className='flex flex-col mb-10' onSubmit={handleSubmit(onSubmit)}>
         <input required className=' input-shadow  outline-none mb-3 border pl-5 py-3' placeholder='Product Name' type="text" {...register("name", { required: true })} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Supplier Name' type="text" {...register("supplier", { required: true })} />

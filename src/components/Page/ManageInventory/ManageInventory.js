@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import React from 'react';
+import Helmet from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem';
@@ -28,6 +29,9 @@ const ManageInventory = () => {
    
 return (
 <main>
+<Helmet>
+        <title>manage-inventory</title>
+      </Helmet>
     <section>
         <div className='flex justify-between items-center w-[80%] mx-auto mt-5'>
            <p className='lg:text-3xl text-2xl '>Inventory List</p>
