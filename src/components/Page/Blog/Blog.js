@@ -1,8 +1,12 @@
 import React from 'react';
 import {Helmet} from 'react-helmet-async'
+import Footer from '../../Shared/Footer/Footer';
+import Menubar from '../../Shared/Menubar/Menubar';
 
 const Blog = () => {
 return (
+    <>
+  <Menubar />
 <main>
 <Helmet>
         <title>blogs</title>
@@ -74,6 +78,8 @@ return (
 
     </section>
 </main>
+<Footer />
+</>
 );
 };
 

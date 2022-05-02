@@ -4,6 +4,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
+import Footer from '../../Shared/Footer/Footer';
+import Menubar from '../../Shared/Menubar/Menubar';
 import SingleInventoryItem from '../SingleInventoryItem/SingleInventoryItem';
 
 const ManageInventory = () => {
@@ -28,6 +30,8 @@ const ManageInventory = () => {
     }
    
 return (
+    <>
+ <Menubar />  
 <main>
 <Helmet>
         <title>manage-inventory</title>
@@ -78,6 +82,8 @@ return (
 
     </section>
 </main>
+<Footer />
+</>
 );
 };
 

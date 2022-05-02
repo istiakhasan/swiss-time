@@ -16,15 +16,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Blog from './components/Page/Blog/Blog';
 import NotFound from './components/Page/NotFound/NotFound';
 import ContactUs from './components/Page/ContactUs/ContactUs';
-
-
-
 function App() {
-
-
   return (
     <div>
-        <Menubar />
+       
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
@@ -52,13 +47,10 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={<Blog />} />
           <Route path='/contactus' element={<ContactUs />} />
-         
           <Route path='*' element={<NotFound  />} />
         </Routes>
-          <Footer />
+        
        <ToastContainer />
-    
-       
     </div>
   );
 }

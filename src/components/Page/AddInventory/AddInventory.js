@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import './Addinventory.css'
 import { toast } from 'react-toastify';
 import {Helmet} from 'react-helmet-async'
+import Menubar from '../../Shared/Menubar/Menubar';
+import Footer from '../../Shared/Footer/Footer';
 
 
 const AddInventory = () => {
@@ -20,7 +22,9 @@ const onSubmit = data => {
     
     };
 return (
-<main className='w-4/12 shadow-lg custom-shadow p-5  mx-auto my-4'>
+    <>
+    <Menubar />
+<main className='lg:w-4/12 sm:w-8/12   shadow-lg custom-shadow p-5  mx-4 sm:mx-auto my-4'>
 <Helmet>
         <title>add-product</title>
       </Helmet>
@@ -37,6 +41,8 @@ return (
     </form>
  
 </main>
+<Footer />
+    </>
 );
 };
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {Helmet} from 'react-helmet-async'
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "../../Shared/Footer/Footer";
+import Menubar from "../../Shared/Menubar/Menubar";
 
 const Inventory = () => {
   const { id } = useParams();
@@ -73,6 +75,8 @@ const Inventory = () => {
   }
 
   return (
+    <>
+    <Menubar />
     <main className="my-10">
       <Helmet>
         <title>product-details</title>
@@ -114,6 +118,8 @@ const Inventory = () => {
         <button onClick={()=>navigate('/manageinventory')} className=" button-29 my-20 mx-auto">Manage Inventories</button>
       </section>
     </main>
+    <Footer />
+    </>
   );
 };
 

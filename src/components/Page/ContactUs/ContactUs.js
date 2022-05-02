@@ -3,6 +3,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import Footer from '../../Shared/Footer/Footer';
+import Menubar from '../../Shared/Menubar/Menubar';
 
 const ContactUs = () => {
     
@@ -21,6 +23,8 @@ const ContactUs = () => {
     
     }
     return (
+        <>
+        <Menubar />
         <main className='w-4/12  border-gray-300 border-2 p-5  mx-auto my-4'>
         <Helmet>
                 <title>add-product</title>
@@ -34,6 +38,8 @@ const ContactUs = () => {
             </form>
          
         </main>
+        <Footer />
+        </>
     );
 };
 

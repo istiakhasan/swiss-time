@@ -7,6 +7,8 @@ import Loading from '../../../Shared/Loading/Loading';
 import Social from '../Social/Social';
 import {Helmet} from 'react-helmet-async'
 import { toast } from 'react-toastify';
+import Footer from '../../../Shared/Footer/Footer';
+import Menubar from '../../../Shared/Menubar/Menubar';
 
 const Register = () => {
     const navigate=useNavigate();
@@ -127,6 +129,8 @@ const Register = () => {
 }
 
     return (
+        <>
+       <Menubar />
         <main className=' h-fit py-16 flex justify-center lg:pt-5 login-container mx-auto'>
             <Helmet>
         <title>register</title>
@@ -166,6 +170,8 @@ const Register = () => {
         </div>
       
   </main>
+  <Footer />
+  </>
     );
 };
 
