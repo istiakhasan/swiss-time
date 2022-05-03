@@ -1,10 +1,8 @@
 # Swiss Time
-
-
-
 ## Live Website Link [Swiss Time](https://immigration-lab-47778.web.app/)
 Live Site Full Url Here: [https://immigration-lab-47778.web.app/](https://immigration-lab-47778.web.app/)
-
+## Description:
+This application allows the user to display a sorted list of inventory stocks. List entries include the email , price, name,id and also quantity.User can showthe details informaiton of inventory item .Also user can  store their product  and can delete their added product. 
 
 ## Project features
 
@@ -25,7 +23,7 @@ Live Site Full Url Here: [https://immigration-lab-47778.web.app/](https://immigr
 15.Use JWT  fom make the user data secure  </br>
 16.Full Responsive website  </br>
 
-## list of technologies User
+## list of technologies Uses
 1.React  </br>
 2.React-router-dom </br>
 3.Tailwind </br>
@@ -37,3 +35,4 @@ Live Site Full Url Here: [https://immigration-lab-47778.web.app/](https://immigr
 9.Mongodb database </br>
 10.Custom Css </br>
 11.Helmet </br>
+12.Google Fonts
