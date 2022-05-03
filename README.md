@@ -1,6 +1,6 @@
 # Swiss Time
-## Live Website Link [Swiss Time](https://immigration-lab-47778.web.app/)
-Live Site Full Url Here: [https://immigration-lab-47778.web.app/](https://immigration-lab-47778.web.app/)
+## Live Website Link [Swiss Time](https://swiss-time.web.app/)
+Live Site Full Url Here: [https://swiss-time.web.app/](https://swiss-time.web.app/)
 ## Description:
 This application allows the user to display a sorted list of inventory stocks. List entries include the email , price, name,id and also quantity.User can showthe details informaiton of inventory item .Also user can  store their product  and can delete their added product. 
 
