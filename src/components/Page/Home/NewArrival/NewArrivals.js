@@ -1,7 +1,8 @@
 import React from "react";
-import best1 from "../../../../images/seller/pexels-philip-lindvall-1120275.jpg";
-import best2 from "../../../../images/seller/pexels-pixabay-162426.jpg";
-import best3 from "../../../../images/seller/pexels-pixabay-47856 (1).jpg";
+import best1 from "../../../../images/newarribal1.jpg";
+import best2 from "../../../../images/newarribal2.jpg";
+import best3 from "../../../../images/newarribal3.jpg";
+
 import './newarrival.css'
 import NewArrival from "./SingleProducts/NewArrival";
 

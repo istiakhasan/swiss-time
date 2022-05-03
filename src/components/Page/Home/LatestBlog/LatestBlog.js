@@ -1,5 +1,5 @@
 import React from 'react';
-import background from '../../../../images/watch/background.jpg'
+import background from '../../../../images/background2.jpg'
 
 const LatestBlog = () => {
     const date=new Date()

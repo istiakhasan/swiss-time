@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const {pathname}=useLocation();
@@ -9,80 +9,80 @@ const Footer = () => {
     <footer className={`gradiant-color ${pathname?.length===1?"mt-16":"" || pathname==="/home"?"mt-16":''}`}>
       <div className="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">
+          <h2 className="mb-6 text-sm font-bold text-gray-800 uppercase">
             Company
           </h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <Link to="/about" className="text-white hover:underline">
                 About
-              </a>
+              </Link>
             </li>
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <Link to="/" className="text-white hover:underline">
                 Careers
-              </a>
+              </Link>
             </li>
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <Link to="/blogs" className="text-white hover:underline">
                 Blog
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">
+          <h2 className="mb-6 text-sm font-bold text-gray-800 uppercase">
             Help center
           </h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <a href="https://www.twitter.com" target={"_blank"} className="text-white hover:underline">
                 Twitter
               </a>
             </li>
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <a href="https://www.facebook.com"  target={"_blank"} className="text-white hover:underline">
                 Facebook
               </a>
             </li>
-            <a href="#" className="text-white hover:underline"></a>
+           
             <li className="mb-4">
-              <a href="#" className="hover:underline"></a>
-              <a href="#" className="hover:underline">
+             
+              <Link to="/contactus" className="hover:underline">
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">
+          <h2 className="mb-6 text-sm font-bold text-gray-800 uppercase">
             Legal
           </h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <Link to="/privecy" className="text-white hover:underline">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <Link to="/termscondition" className="text-white hover:underline">
                 Terms &amp; Conditions
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">
+          <h2 className="mb-6 text-sm  text-gray-800 font-bold uppercase">
             Download
           </h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <a href="https://www.google.com/search?q=android" target="_blank" className="text-white hover:underline">
                 Android
               </a>
             </li>
             <li className="mb-4">
-              <a href="#" className="text-white hover:underline">
+              <a href="https://www.google.com/search?q=windows" target="_blank" className="text-white hover:underline">
                 Windows
               </a>
             </li>
@@ -96,7 +96,7 @@ const Footer = () => {
           Reserved.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
-          <a href="#" className="text-gray-400 hover:text-white">
+          <a href="https://www.facebook.com/istieak" target="_blank" className="text-gray-400 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -110,7 +110,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#" className="text-gray-400 hover:text-white">
+          <a href="https://www.instagram.com/istieak_hasan/" target="_blank" className="text-gray-400 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -124,7 +124,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#" className="text-gray-400 hover:text-white">
+          <a href="https://www.twitter.com" target="_blank" className="text-gray-400 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -134,7 +134,7 @@ const Footer = () => {
               <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
             </svg>
           </a>
-          <a href="#" className="text-gray-400 hover:text-white">
+          <a href="https://github.com/istiakhasan" target="_blank" className="text-gray-400 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
