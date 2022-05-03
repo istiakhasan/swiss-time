@@ -25,7 +25,7 @@ const ContactUs = () => {
     return (
         <>
         <Menubar />
-        <main className='w-4/12  border-gray-300 border-2 p-5  mx-auto my-4'>
+        <main className='md:w-4/12  border-gray-300 border-2 p-5  mx-auto my-4'>
         <Helmet>
                 <title>add-product</title>
               </Helmet>
