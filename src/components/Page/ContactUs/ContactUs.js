@@ -10,7 +10,7 @@ const ContactUs = () => {
     
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-     axios.post('http://localhost:4000/sendmessage',data)
+     axios.post('https://lit-depths-84419.herokuapp.com/sendmessage',data)
      .then(res=>{
        
          const data=res.data 

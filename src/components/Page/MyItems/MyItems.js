@@ -18,7 +18,7 @@ const navigate=useNavigate()
 useEffect(()=>{
 const email=user?.email
 
-axios.get(`http://localhost:4000/myitems?email=${email}`,{
+axios.get(`https://lit-depths-84419.herokuapp.com/myitems?email=${email}`,{
 headers:{
 authorization: `Bearer ${localStorage.getItem('accessToken')}`
 }
@@ -40,7 +40,7 @@ navigate('/login')
 const handleDelteItem=(id)=>{
 const confirm=window.confirm("Are you sure to delete this item?")
 if(confirm){
-const url=`http://localhost:4000/inventory/${id}`;
+const url=`https://lit-depths-84419.herokuapp.com/inventory/${id}`;
 axios.delete(url)
 .then(res=>{
 const data=res.data
@@ -62,7 +62,7 @@ return (
         <Helmet>
             <title>my products</title>
         </Helmet>
-        <section>
+        <section className='mb-10'>
 
             <p className='lg:text-3xl text-2xl text-center mt-10'>My Item List</p>
 
@@ -110,7 +110,10 @@ return (
 
         </section>
     </main>
+    <div className='mt-32'>
+
     <Footer />
+    </div>
 </>
 );
 };

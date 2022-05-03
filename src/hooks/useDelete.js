@@ -7,7 +7,7 @@ const useDelete=()=>{
     const handleDelteItem=(id)=>{
         const  confirm=window.confirm("Are you sure to delete this item?")
         if(confirm){
-            const url=`http://localhost:4000/inventory/${id}`;
+            const url=`https://lit-depths-84419.herokuapp.com/inventory/${id}`;
             axios.delete(url)
             .then(res=>{
              const data=res.data

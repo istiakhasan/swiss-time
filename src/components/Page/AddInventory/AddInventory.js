@@ -6,12 +6,15 @@ import { toast } from 'react-toastify';
 import {Helmet} from 'react-helmet-async'
 import Menubar from '../../Shared/Menubar/Menubar';
 import Footer from '../../Shared/Footer/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.config';
 
 
 const AddInventory = () => {
+const [user]=useAuthState(auth)    
 const { register, handleSubmit,reset } = useForm();
 const onSubmit = data => {
-    axios.post('http://localhost:4000/inventory',data)
+    axios.post('https://lit-depths-84419.herokuapp.com/inventory',data)
     .then(res=>{
         const data=res.data
         if(data.insertedId){
@@ -29,10 +32,10 @@ return (
         <title>add-product</title>
       </Helmet>
     <form className='flex flex-col mb-10' onSubmit={handleSubmit(onSubmit)}>
-        <input required className=' input-shadow  outline-none mb-3 border pl-5 py-3' placeholder='Product Name' type="text" {...register("name", { required: true })} />
+        <input required className=' input-shadow  outline-none mb-3 border pl-5 py-3' value={user?.displayName} readOnly placeholder='Product Name' type="text" {...register("name", { required: true })} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Supplier Name' type="text" {...register("supplier", { required: true })} />
         <textarea required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Description' type="text" {...register("description")} />
-        <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Your Email' type="email" {...register("email")} />
+        <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' value={user?.email} readOnly placeholder='Your Email' type="email" {...register("email")} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Status' type="text" {...register("status")} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Enter price' type="number" {...register("price")} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Enter quantity' type="number" {...register("quantity")} />

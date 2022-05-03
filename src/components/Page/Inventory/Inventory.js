@@ -13,7 +13,7 @@ const Inventory = () => {
   })
   const navigate=useNavigate()
   useEffect(() => {
-    const url = `http://localhost:4000/inventory/${id}`;
+    const url = `https://lit-depths-84419.herokuapp.com/inventory/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -31,7 +31,7 @@ const Inventory = () => {
       newQuantity.quantity=quantity
       setProduct(newQuantity)
     
-      fetch(`http://localhost:4000/inventory/${product._id}`,{
+      fetch(`https://lit-depths-84419.herokuapp.com/inventory/${product._id}`,{
           method:"PATCH",
           headers:{"content-type":"application/json"},
           body:JSON.stringify({quantity:product.quantity,isReduce:true})
@@ -60,7 +60,7 @@ const Inventory = () => {
   let quantity=newAddedItems
   newQuantity.quantity=quantity
   setProduct(newQuantity)
-  fetch(`http://localhost:4000/inventory/${product._id}`,{
+  fetch(`https://lit-depths-84419.herokuapp.com/inventory/${product._id}`,{
     method:"PATCH",
     headers:{"content-type":"application/json"},
     body:JSON.stringify({quantity:newAddedItems,isReduce:false})

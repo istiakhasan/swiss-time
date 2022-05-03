@@ -5,7 +5,7 @@ const useToken = user => {
     const [token, setToken] = useState('');
     useEffect(() => {
         const email = user?.user?.email;
-        axios.post(`http://localhost:4000/login`,{email})
+        axios.post(`https://lit-depths-84419.herokuapp.com/login`,{email})
         .then(res=>{
             const data=res.data 
             setToken(data.accessToken)
