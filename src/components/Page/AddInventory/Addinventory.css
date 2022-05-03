@@ -1,13 +1,10 @@
-.custom-shadow{
-
-    border-radius: 7px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow:  23px 23px 47px #6e6e6e,
-                 -23px -23px 47px #ffffff;
+.custom-shadow {
+  border-radius: 7px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 23px 23px 47px #6e6e6e, -23px -23px 47px #ffffff;
 }
-.input-shadow{
-    border-radius: 6px;
-background: #ffffff;
-box-shadow: inset 9px 9px 18px #9e9e9e,
-            inset -9px -9px 18px #ffffff;
+.input-shadow {
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: inset 9px 9px 18px #9e9e9e, inset -9px -9px 18px #ffffff;
 }

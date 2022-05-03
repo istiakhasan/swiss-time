@@ -7,22 +7,20 @@ import InventoryItems from "../InventoryItems/InventoryItems";
 import LatestBlog from "../LatestBlog/LatestBlog";
 import NewArrivals from "../NewArrival/NewArrivals";
 
-
 const Home = () => {
-
-return (
-<>
-  <Menubar />
-  <main className="mt-8 container mx-auto">
-    <PageTitle title={"home"} />
-    <Banner />
-    <InventoryItems />
-    <NewArrivals />
-    <LatestBlog />
-  </main>
-  <Footer />
-</>
-);
+  return (
+    <>
+      <Menubar />
+      <main className="mt-8 container mx-auto">
+        <PageTitle title={"home"} />
+        <Banner />
+        <InventoryItems />
+        <NewArrivals />
+        <LatestBlog />
+      </main>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;

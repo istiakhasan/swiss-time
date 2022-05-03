@@ -5,7 +5,7 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 
 const InventoryItems = () => {
   const [products] = useProducts();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <section className="mt-16 w-10/12 mx-auto">
       <h1 className="text-5xl text-center my-16">Our Products</h1>
@@ -14,7 +14,12 @@ const InventoryItems = () => {
           <InventoryItem key={product._id} product={product} />
         ))}
       </div>
-      <button onClick={()=>navigate('/manageinventory')} className=" button-29 mx-auto mt-16">Manage Inventories</button>
+      <button
+        onClick={() => navigate("/manageinventory")}
+        className=" button-29 mx-auto mt-16"
+      >
+        Manage Inventories
+      </button>
     </section>
   );
 };
