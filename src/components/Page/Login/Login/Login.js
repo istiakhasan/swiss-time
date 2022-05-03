@@ -114,7 +114,7 @@ toast.error('please enter your email address');
 return (
 <>
     <Menubar />
-    <main className='lg:h-[91vh] h-[90vh]  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
+    <main className='h-fit  py-16 flex justify-center lg:pt-5 login-container mx-auto'>
         <Helmet>
             <title>login</title>
         </Helmet>
