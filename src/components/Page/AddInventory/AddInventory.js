@@ -32,8 +32,8 @@ return (
         <title>add-product</title>
       </Helmet>
     <form className='flex flex-col mb-10' onSubmit={handleSubmit(onSubmit)}>
-        <input required className=' input-shadow  outline-none mb-3 border pl-5 py-3' value={user?.displayName} readOnly placeholder='Product Name' type="text" {...register("name", { required: true })} />
-        <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Supplier Name' type="text" {...register("supplier", { required: true })} />
+        <input required className=' input-shadow  outline-none mb-3 border pl-5 py-3'  placeholder='Product Name' type="text" {...register("name", { required: true })} />
+        <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' value={user?.displayName} readOnly placeholder='Supplier Name' type="text" {...register("supplier", { required: true })} />
         <textarea required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Description' type="text" {...register("description")} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' value={user?.email} readOnly placeholder='Your Email' type="email" {...register("email")} />
         <input required className=' input-shadow border  outline-none mb-3 pl-5 py-3' placeholder='Status' type="text" {...register("status")} />
