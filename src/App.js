@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Blog from './components/Page/Blog/Blog';
 import NotFound from './components/Page/NotFound/NotFound';
 import ContactUs from './components/Page/ContactUs/ContactUs';
+import PopUpModal from './components/Shared/PopUpModal/PopUpModal';
 function App() {
   return (
     <div>
@@ -47,6 +48,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={<Blog />} />
           <Route path='/contactus' element={<ContactUs />} />
+          <Route path='/modal' element={<PopUpModal  />} />
           <Route path='*' element={<NotFound  />} />
         </Routes>
         

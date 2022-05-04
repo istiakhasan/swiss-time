@@ -62,8 +62,8 @@ const AddInventory = () => {
             {...register("email")}
           />
           <select className="input-shadow border  outline-none mb-3 pl-5 py-3" {...register("status")}>
-          <option value="new">New</option>
           <option value="hot">Hot</option>
+          <option value="new">New</option>
           <option value="sold">Sold</option>
           </select>
           <input

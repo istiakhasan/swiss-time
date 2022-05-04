@@ -22,6 +22,8 @@ This application allows the user to display a sorted list of inventory stocks. L
 14.Dynamic tailwind spinner for loading  </br>
 15.Use JWT  fom make the user data secure  </br>
 16.Full Responsive website  </br>
+17.Popup for confirm delete </br>
+18.Reset password funcionality
 
 ## list of technologies Uses
 1.React  </br>
@@ -35,4 +37,5 @@ This application allows the user to display a sorted list of inventory stocks. L
 9.Mongodb database </br>
 10.Custom Css </br>
 11.Helmet </br>
-12.Google Fonts
+12.Google Fonts </br>
+13.React Modal

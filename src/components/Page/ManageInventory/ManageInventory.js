@@ -14,8 +14,8 @@ const ManageInventory = () => {
   const navigate = useNavigate();
   //delete inventory item
   const handleDelteItem = (id) => {
-    const confirm = window.confirm("Are you sure to delete this item?");
-    if (confirm) {
+    
+   
       const url = `https://lit-depths-84419.herokuapp.com/inventory/${id}`;
       axios.delete(url).then((res) => {
         const data = res.data;
@@ -25,7 +25,7 @@ const ManageInventory = () => {
           setProducts(rest);
         }
       });
-    }
+    
   };
 
   return (
