@@ -6,6 +6,7 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 const InventoryItems = () => {
   const [products] = useProducts();
   const navigate = useNavigate();
+
   return (
     <section className="mt-16 w-10/12 mx-auto">
       <h1 className="text-5xl text-center my-16">Our Products</h1>

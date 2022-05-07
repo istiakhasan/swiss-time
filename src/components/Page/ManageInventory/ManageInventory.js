@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,9 +9,29 @@ import Menubar from "../../Shared/Menubar/Menubar";
 import SingleInventoryItem from "../SingleInventoryItem/SingleInventoryItem";
 
 const ManageInventory = () => {
-  const [products, setProducts] = useProducts();
+  const [products, setProducts] = useState([]);
+  const [page,setPage]=useState(0)
 
   const navigate = useNavigate();
+  //pagenation 
+  const [pageCount,setPageCount]=useState(0);
+  useEffect(()=>{
+   axios.get('https://lit-depths-84419.herokuapp.com/inventoryproductcount')
+   .then(res=>{
+     const data=res.data 
+     const pageCount=data.count
+     const pages=Math.ceil(pageCount/10)
+     setPageCount(pages)
+   },[])
+
+  })
+
+  useEffect(()=>{
+    axios.get(`https://lit-depths-84419.herokuapp.com/inventory?page=${page}`)
+    .then(res=>{
+      setProducts(res.data)
+    })
+  },[page])
   //delete inventory item
   const handleDelteItem = (id) => {
     
@@ -77,7 +97,22 @@ const ManageInventory = () => {
                 ))}
               </tbody>
             </table>
+            
           </div>
+          <div className="text-center my-8">
+            {
+              [...Array(pageCount).keys()].map(number=>(
+                <button
+                
+                key={number}
+                className={page===number?'bg-yellow-600 text-white  w-8 h-8 mr-2':'border-yellow-600 border-2 w-8 h-8 mr-2'} 
+                onClick={()=>setPage(number)}
+                >
+                  {number+1}
+                </button>
+              ))
+            }
+            </div>
         </section>
       </main>
       <Footer />
